@@ -62,19 +62,26 @@ class App extends React.Component {
     this.state = {
       count: 0,
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  increment = () => {
     this.setState({ count: this.state.count + 1 });
-  }
+  };
+
+  decrement = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
 
   render() {
     return (
-      <div className="App">
-        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+      <div className="App" style={{ margin: "auto", width: "300px" }}>
+        <button onClick={this.decrement}>-</button>
+        {/* Отображается текущее состояние ↓↓↓↓↓↓↓↓ */}
+        <span style={{ margin: "0 0.75rem", display: "inline-block" }}>
+          {" "}
           {this.state.count}
-        </button>
+        </span>
+        <button onClick={this.increment}>+</button>
       </div>
     );
   }
